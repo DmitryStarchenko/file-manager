@@ -3,6 +3,7 @@ import { goUp, changeDirectory, listDirectory } from "./changeDir.js";
 import { readFile } from "./readFile.js";
 import { createFile } from "./createFile.js";
 import { createDirectory } from "./createDirectory.js";
+import { renameFile } from "./renameFile.js";
 
 const nwd = async (command, arg = "") => {
   switch (command) {
@@ -25,7 +26,7 @@ const nwd = async (command, arg = "") => {
       createDirectory(arg);
       break;
     case "rn":
-      renameFile();
+      renameFile(arg);
       break;
     case "cp":
       copyFile();

@@ -1,7 +1,10 @@
 import fs from "fs";
-// нужно ввести абсолютный путь
+
 const readFile = (filePath) => {
   const stream = fs.createReadStream(filePath);
+  stream.on("error", () => {
+    console.log("Error reading file");
+  });
   stream.pipe(process.stdout);
   stream.on("end", () => {
     console.log("\n");

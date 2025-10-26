@@ -6,7 +6,7 @@ const interactiveConsole = () => {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
-    prompt: ">>> ",
+    prompt: "",
   });
 
   rl.prompt();
@@ -24,7 +24,6 @@ const interactiveConsole = () => {
     const pathArg = args.slice(1).join(" ");
 
     nwd(command, pathArg);
-    console.log();
     rl.prompt();
   });
 
