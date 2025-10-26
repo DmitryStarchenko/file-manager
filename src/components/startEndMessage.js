@@ -1,8 +1,8 @@
-import { getCurrentWorkingDirectory } from "./navigation.js";
+import { getCurrentWorkingDirectory } from "./changeDir.js";
 
 let userName;
 
-const runStart = () => {
+const startMessage = () => {
   const ARGS = process.argv.slice(2);
   userName = ARGS[0].split("=");
 
@@ -10,9 +10,9 @@ const runStart = () => {
   console.log(`You are currently in ${getCurrentWorkingDirectory()}\n`);
 };
 
-const runEnd = () => {
+const endMessage = () => {
   console.log(`\nThank you for using File Manager, ${userName[1]}, goodbye!`);
   process.exit(0);
 };
 
-export { runStart, runEnd };
+export { startMessage, endMessage };

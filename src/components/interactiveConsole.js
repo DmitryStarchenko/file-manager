@@ -1,5 +1,5 @@
 import readline from "readline";
-import { runEnd } from "./start-end.js";
+import { endMessage } from "./startEndMessage.js";
 import { nwd } from "./navigation.js";
 
 const interactiveConsole = () => {
@@ -29,7 +29,7 @@ const interactiveConsole = () => {
   });
 
   rl.on("close", () => {
-    runEnd();
+    endMessage();
   });
 };
 
