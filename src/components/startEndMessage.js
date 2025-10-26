@@ -6,8 +6,8 @@ const startMessage = () => {
   const ARGS = process.argv.slice(2);
   userName = ARGS[0].split("=");
 
-  console.log(`Welcome to the File Manager, ${userName[1]}!`);
-  console.log(`You are currently in ${getCurrentWorkingDirectory()}\n`);
+  console.log(`🌟 Welcome to the File Manager💻, ${userName[1]}!🌟`);
+  console.log(`📚 You are currently in ${getCurrentWorkingDirectory()}\n`);
 };
 
 const endMessage = () => {

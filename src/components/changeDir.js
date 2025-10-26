@@ -22,7 +22,7 @@ const goUp = () => {
   const parentDir = path.dirname(currentWorkingDirectory);
   if (parentDir !== currentWorkingDirectory) {
     currentWorkingDirectory = parentDir;
-    console.log(`You are currently in ${currentWorkingDirectory}`);
+    console.log(`📚 You are currently in ${currentWorkingDirectory}`);
   }
 };
 
@@ -41,7 +41,7 @@ const changeDirectory = async (pathToDirectory) => {
     const stats = await fs.promises.stat(newPath);
     if (stats.isDirectory()) {
       currentWorkingDirectory = newPath;
-      console.log(`You are currently in ${currentWorkingDirectory}`);
+      console.log(`📚 You are currently in ${currentWorkingDirectory}`);
     } else {
       console.log("Invalid input");
     }

@@ -1,5 +1,5 @@
 import fs from "fs";
-import { getCurrentWorkingDirectory } from "./changeDir.js";
+import { getCurrentWorkingDirectory } from "../changeDir.js";
 
 const createFile = async (fileName) => {
   const PATH = `${getCurrentWorkingDirectory()}\\${fileName}`;

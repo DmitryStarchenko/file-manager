@@ -1,9 +1,11 @@
 import { endMessage } from "./startEndMessage.js";
 import { goUp, changeDirectory, listDirectory } from "./changeDir.js";
-import { readFile } from "./readFile.js";
-import { createFile } from "./createFile.js";
-import { createDirectory } from "./createDirectory.js";
-import { renameFile } from "./renameFile.js";
+import {
+  readFile,
+  createFile,
+  createDirectory,
+  renameFile,
+} from "./operationsFiles/index.js";
 
 const nwd = async (command, arg = "") => {
   switch (command) {
