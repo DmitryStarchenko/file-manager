@@ -1,4 +1,5 @@
-import { runStart, runEnd } from "./components/start-end.js";
+import { runStart } from "./components/start-end.js";
+import { interactiveConsole } from "./components/interactiveConsole.js";
 
 runStart();
-runEnd();
+interactiveConsole();
