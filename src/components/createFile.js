@@ -1,0 +1,23 @@
+import fs from "fs";
+import { getCurrentWorkingDirectory } from "./changeDir.js";
+
+const createFile = async (fileName) => {
+  const PATH = `${getCurrentWorkingDirectory()}\\${fileName}`;
+  fs.readFile(PATH, (error) => {
+    if (error) {
+      fs.writeFile(PATH, "", (err) => {
+        if (err) {
+          console.log(
+            "Error creating file. The folder may be write-protected."
+          );
+        } else {
+          console.log(`file ${fileName} created`);
+        }
+      });
+    } else {
+      console.log("A file with this name already exists.");
+    }
+  });
+};
+
+export { createFile };

@@ -1,23 +1,24 @@
 import { endMessage } from "./startEndMessage.js";
 import { goUp, changeDirectory, listDirectory } from "./changeDir.js";
 import { readFile } from "./readFile.js";
+import { createFile } from "./createFile.js";
 
-const nwd = async (command, pathToDirectory = "") => {
+const nwd = async (command, arg = "") => {
   switch (command) {
     case "up":
       goUp();
       break;
     case "cd":
-      await changeDirectory(pathToDirectory);
+      await changeDirectory(arg);
       break;
     case "ls":
       await listDirectory();
       break;
     case "cat":
-      await readFile(pathToDirectory);
+      readFile(arg);
       break;
     case "add":
-      createFile();
+      await createFile(arg);
       break;
     case "mkdir":
       createDirectory();

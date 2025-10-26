@@ -11,7 +11,7 @@ const interactiveConsole = () => {
 
   rl.prompt();
 
-  rl.on("line", async (input) => {
+  rl.on("line", (input) => {
     const trimmedInput = input.trim();
 
     if (trimmedInput === "") {
@@ -23,7 +23,7 @@ const interactiveConsole = () => {
     const command = args[0].toLowerCase();
     const pathArg = args.slice(1).join(" ");
 
-    await nwd(command, pathArg);
+    nwd(command, pathArg);
     console.log();
     rl.prompt();
   });
