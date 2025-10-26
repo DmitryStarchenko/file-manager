@@ -2,6 +2,7 @@ import { endMessage } from "./startEndMessage.js";
 import { goUp, changeDirectory, listDirectory } from "./changeDir.js";
 import { readFile } from "./readFile.js";
 import { createFile } from "./createFile.js";
+import { createDirectory } from "./createDirectory.js";
 
 const nwd = async (command, arg = "") => {
   switch (command) {
@@ -21,7 +22,7 @@ const nwd = async (command, arg = "") => {
       await createFile(arg);
       break;
     case "mkdir":
-      createDirectory();
+      createDirectory(arg);
       break;
     case "rn":
       renameFile();
