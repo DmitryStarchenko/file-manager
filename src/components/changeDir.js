@@ -43,10 +43,10 @@ const changeDirectory = async (pathToDirectory) => {
       currentWorkingDirectory = newPath;
       console.log(`📚 You are currently in ${currentWorkingDirectory}`);
     } else {
-      console.log("Invalid input");
+      console.log("❌ Invalid input ❌");
     }
   } catch (error) {
-    console.log("Operation failed");
+    console.log("❌ Operation failed ❌");
   }
 };
 
@@ -81,7 +81,7 @@ const listDirectory = async () => {
     console.log(`\nContents of: ${currentWorkingDirectory}`);
     console.table(itemsWithStats);
   } catch (error) {
-    console.log("Operation failed");
+    console.log("❌ Operation failed ❌");
   }
 };
 

@@ -8,14 +8,14 @@ const createDirectory = async (directoryName) => {
       fs.mkdir(PATH, (err) => {
         if (err) {
           console.log(
-            "Error creating directory. The folder may be write-protected."
+            "❌ Error creating directory. The folder may be write-protected ❌"
           );
         } else {
-          console.log(`directory ${directoryName} created`);
+          console.log(`🆗 Directory ${directoryName} created`);
         }
       });
     } else {
-      console.log("A directory with this name already exists.");
+      console.log("❌ A directory with this name already exists ❌");
     }
   });
 };

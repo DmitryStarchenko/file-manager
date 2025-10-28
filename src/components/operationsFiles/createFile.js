@@ -8,14 +8,14 @@ const createFile = async (fileName) => {
       fs.writeFile(PATH, "", (err) => {
         if (err) {
           console.log(
-            "Error creating file. The folder may be write-protected."
+            "❌ Error creating file. The folder may be write-protected ❌"
           );
         } else {
-          console.log(`file ${fileName} created`);
+          console.log(`🆗 File ${fileName} created`);
         }
       });
     } else {
-      console.log("A file with this name already exists.");
+      console.log("❌ A file with this name already exists ❌");
     }
   });
 };

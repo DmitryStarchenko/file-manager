@@ -5,6 +5,7 @@ import {
   createFile,
   createDirectory,
   renameFile,
+  copyFile,
 } from "./operationsFiles/index.js";
 
 const nwd = async (command, arg = "") => {
@@ -31,7 +32,7 @@ const nwd = async (command, arg = "") => {
       renameFile(arg);
       break;
     case "cp":
-      copyFile();
+      copyFile(arg);
       break;
     case "mv":
       moveFile();
@@ -43,7 +44,7 @@ const nwd = async (command, arg = "") => {
       endMessage();
       break;
     default:
-      console.log(`Invalid input`);
+      console.log(`❌ Invalid input ❌`);
   }
 };
 

@@ -6,7 +6,7 @@ const renameFile = async (files) => {
   let CURRENT_FILE_PATH;
   let NEW_FILE_PATH;
   if (!data[1]) {
-    console.log("You have not entered a new file name");
+    console.log("❌You have not entered a new file name❌");
     return;
   } else {
     CURRENT_FILE_PATH = data[0];
@@ -17,13 +17,13 @@ const renameFile = async (files) => {
     if (err) {
       fs.rename(CURRENT_FILE_PATH, NEW_FILE_PATH, (err) => {
         if (err) {
-          console.log("Error renaming file");
+          console.log("❌ Error renaming file ❌");
         } else {
-          console.log("Rename complete");
+          console.log("🆗 Rename complete");
         }
       });
     } else {
-      console.log("A file with this name already exists");
+      console.log("❌ A file with this name already exists ❌");
     }
   });
 };
