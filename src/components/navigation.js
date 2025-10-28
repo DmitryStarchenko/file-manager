@@ -5,7 +5,7 @@ import {
   createFile,
   createDirectory,
   renameFile,
-  copyFile,
+  copyOrMoveFile,
 } from "./operationsFiles/index.js";
 
 const nwd = async (command, arg = "") => {
@@ -32,10 +32,10 @@ const nwd = async (command, arg = "") => {
       renameFile(arg);
       break;
     case "cp":
-      copyFile(arg);
+      copyOrMoveFile(arg);
       break;
     case "mv":
-      moveFile();
+      copyOrMoveFile(arg, "mv");
       break;
     case "rm":
       deleteFile();

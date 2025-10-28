@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-const copyFile = async (paths) => {
+const copyOrMoveFile = async (paths, move = "") => {
   const data = paths.split(" ");
   let FILE_PATH;
   let NEW_DIRECTORY_PATH;
@@ -36,7 +36,12 @@ const copyFile = async (paths) => {
       });
 
       writeStream.on("finish", () => {
-        resolve(console.log("🆗 The file was copied successfully."));
+        if (move === "") {
+          resolve(console.log("🆗 The file was copied successfully."));
+        } else {
+          fs.unlink(FILE_PATH, () => {});
+          resolve(console.log("🆗 The file was moved successfully."));
+        }
       });
 
       readStream.pipe(writeStream);
@@ -46,4 +51,4 @@ const copyFile = async (paths) => {
   }
 };
 
-export { copyFile };
+export { copyOrMoveFile };
