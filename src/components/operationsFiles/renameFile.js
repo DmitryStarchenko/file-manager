@@ -5,8 +5,11 @@ const renameFile = async (files) => {
   const data = files.split(" ");
   let CURRENT_FILE_PATH;
   let NEW_FILE_PATH;
-  if (!data[1]) {
-    console.log("❌You have not entered a new file name❌");
+  if (!data[0]) {
+    console.log("❌ You must enter the file path and file name. ❌");
+    return;
+  } else if (!data[1]) {
+    console.log("❌ You have not entered a new file name ❌");
     return;
   } else {
     CURRENT_FILE_PATH = data[0];

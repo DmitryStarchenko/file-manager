@@ -2,6 +2,10 @@ import fs from "fs";
 import { getCurrentWorkingDirectory } from "../changeDir.js";
 
 const createFile = async (fileName) => {
+  if (fileName === "") {
+    console.log("❌ You must enter the file name ❌");
+    return;
+  }
   const PATH = `${getCurrentWorkingDirectory()}\\${fileName}`;
   fs.readFile(PATH, (error) => {
     if (error) {

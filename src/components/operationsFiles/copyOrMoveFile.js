@@ -5,7 +5,10 @@ const copyOrMoveFile = async (paths, move = "") => {
   const data = paths.split(" ");
   let FILE_PATH;
   let NEW_DIRECTORY_PATH;
-  if (!data[1]) {
+  if (!data[0]) {
+    console.log("❌ You must enter the file path and folder path ❌");
+    return;
+  } else if (!data[1]) {
     console.log("❌ You have not entered a new directory ❌");
     return;
   } else {
