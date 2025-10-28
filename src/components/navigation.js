@@ -6,6 +6,7 @@ import {
   createDirectory,
   renameFile,
   copyOrMoveFile,
+  deleteFile,
 } from "./operationsFiles/index.js";
 
 const nwd = async (command, arg = "") => {
@@ -38,7 +39,7 @@ const nwd = async (command, arg = "") => {
       copyOrMoveFile(arg, "mv");
       break;
     case "rm":
-      deleteFile();
+      deleteFile(arg);
       break;
     case ".exit":
       endMessage();
