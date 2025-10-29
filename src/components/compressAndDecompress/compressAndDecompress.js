@@ -2,7 +2,7 @@ import zlib from "zlib";
 import fs from "fs";
 import path from "path";
 
-const compress = async (paths) => {
+const compressAndDecompress = async (paths, arg = "") => {
   const data = paths.split(" ");
   let FILE_PATH;
   let NEW_DIRECTORY_PATH;
@@ -18,7 +18,7 @@ const compress = async (paths) => {
     NEW_DIRECTORY_PATH = `${data[1]}\\${basename.slice(
       0,
       basename.lastIndexOf(".")
-    )}.br`;
+    )}.${arg === "" ? "br" : "txt"}`;
   }
 
   fs.access(FILE_PATH, fs.constants.F_OK, (err) => {
@@ -29,13 +29,20 @@ const compress = async (paths) => {
 
   try {
     const readStream = fs.createReadStream(FILE_PATH);
-    const compressStream = zlib.createBrotliCompress();
+    const compressStream =
+      arg === "" ? zlib.createBrotliCompress() : zlib.createBrotliDecompress();
     const writeStream = fs.createWriteStream(NEW_DIRECTORY_PATH);
     readStream.pipe(compressStream).pipe(writeStream);
-    console.log(`✅ Compression complete`);
+    console.log(
+      `${arg === "" ? "✅ Compression complete" : "✅ Decompression complete"}`
+    );
   } catch (error) {
-    console.error(`❌ Compression error: ${error.message} ❌`);
+    console.error(
+      `❌ ${arg === "" ? "Compression" : "Decompression"} error: ${
+        error.message
+      } ❌`
+    );
   }
 };
 
-export { compress };
+export { compressAndDecompress };
