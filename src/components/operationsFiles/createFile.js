@@ -15,7 +15,7 @@ const createFile = async (fileName) => {
             "❌ Error creating file. The folder may be write-protected ❌"
           );
         } else {
-          console.log(`🆗 File ${fileName} created`);
+          console.log(`✅ File ${fileName} created`);
         }
       });
     } else {

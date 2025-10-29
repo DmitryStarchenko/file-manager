@@ -10,6 +10,7 @@ import {
 } from "./operationsFiles/index.js";
 import { systemInfo } from "./systemInfo/systemInfo.js";
 import { hashFile } from "./hashFile/hashFile.js";
+import { compress } from "./compressAndDecompress/compress.js";
 
 const nwd = async (command, arg = "") => {
   switch (command) {
@@ -48,6 +49,9 @@ const nwd = async (command, arg = "") => {
       break;
     case "hash":
       await hashFile(arg);
+      break;
+    case "compress":
+      await compress(arg);
       break;
     case ".exit":
       endMessage();

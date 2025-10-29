@@ -9,7 +9,7 @@ const deleteFile = (filePath) => {
     if (error) {
       console.log("❌ File deletion error ❌");
     } else {
-      console.log("🆗 File deleted");
+      console.log("✅ File deleted");
     }
   });
 };

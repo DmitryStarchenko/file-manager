@@ -22,7 +22,7 @@ const renameFile = async (files) => {
         if (err) {
           console.log("❌ Error renaming file ❌");
         } else {
-          console.log("🆗 Rename complete");
+          console.log("✅ Rename complete");
         }
       });
     } else {

@@ -40,10 +40,10 @@ const copyOrMoveFile = async (paths, move = "") => {
 
       writeStream.on("finish", () => {
         if (move === "") {
-          resolve(console.log("🆗 The file was copied successfully."));
+          resolve(console.log("✅ The file was copied successfully."));
         } else {
           fs.unlink(FILE_PATH, () => {});
-          resolve(console.log("🆗 The file was moved successfully."));
+          resolve(console.log("✅ The file was moved successfully."));
         }
       });
 

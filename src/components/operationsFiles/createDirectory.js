@@ -15,7 +15,7 @@ const createDirectory = async (directoryName) => {
             "❌ Error creating directory. The folder may be write-protected ❌"
           );
         } else {
-          console.log(`🆗 Directory ${directoryName} created`);
+          console.log(`✅ Directory ${directoryName} created`);
         }
       });
     } else {
