@@ -9,6 +9,7 @@ import {
   deleteFile,
 } from "./operationsFiles/index.js";
 import { systemInfo } from "./systemInfo/systemInfo.js";
+import { hashFile } from "./hashFile/hashFile.js";
 
 const nwd = async (command, arg = "") => {
   switch (command) {
@@ -44,6 +45,9 @@ const nwd = async (command, arg = "") => {
       break;
     case "os":
       systemInfo(arg);
+      break;
+    case "hash":
+      await hashFile(arg);
       break;
     case ".exit":
       endMessage();
