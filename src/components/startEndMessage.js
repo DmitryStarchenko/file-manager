@@ -4,6 +4,12 @@ let userName;
 
 const startMessage = () => {
   const ARGS = process.argv.slice(2);
+  if (ARGS.length === 0) {
+    console.log(
+      "❌ The application must be launched via: 'npm run start -- --username=your_username' ❌"
+    );
+    process.exit(0);
+  }
   userName = ARGS[0].split("=");
 
   console.log(`🌟 Welcome to the File Manager 💻, ${userName[1]}! 🌟`);

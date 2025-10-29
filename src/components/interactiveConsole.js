@@ -1,12 +1,13 @@
 import readline from "readline";
 import { endMessage } from "./startEndMessage.js";
 import { nwd } from "./navigation.js";
+import { getCurrentWorkingDirectory } from "./changeDir.js";
 
 const interactiveConsole = () => {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
-    prompt: "",
+    prompt: `${getCurrentWorkingDirectory()} : `,
   });
 
   rl.prompt();
