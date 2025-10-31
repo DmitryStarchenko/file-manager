@@ -7,10 +7,15 @@ const interactiveConsole = () => {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
-    prompt: `${getCurrentWorkingDirectory()} : `,
+    prompt: "",
   });
 
-  rl.prompt();
+  function updatePrompt() {
+    rl.setPrompt(`${getCurrentWorkingDirectory()} : `);
+    rl.prompt();
+  }
+
+  updatePrompt();
 
   rl.on("line", (input) => {
     const trimmedInput = input.trim();
@@ -25,7 +30,9 @@ const interactiveConsole = () => {
     const pathArg = args.slice(1).join(" ");
 
     nwd(command, pathArg);
-    rl.prompt();
+    setTimeout(() => {
+      updatePrompt();
+    }, 100);
   });
 
   rl.on("close", () => {

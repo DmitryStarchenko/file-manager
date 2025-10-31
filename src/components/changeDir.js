@@ -78,7 +78,7 @@ const listDirectory = async () => {
       return a.Type === "directory" ? -1 : 1;
     });
 
-    console.log(`\nContents of: ${currentWorkingDirectory}`);
+    console.log("\nContents of: ");
     console.table(itemsWithStats);
   } catch (error) {
     console.log("❌ Operation failed ❌");

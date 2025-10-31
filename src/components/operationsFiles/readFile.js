@@ -1,11 +1,11 @@
 import fs from "fs";
+import { getPath } from "../getPath.js";
 
 const readFile = (filePath) => {
-  if (filePath === "") {
-    console.log("❌ You must enter the file path ❌");
-    return;
-  }
-  const stream = fs.createReadStream(filePath);
+  const path = getPath(filePath);
+  if (!path) return;
+
+  const stream = fs.createReadStream(path);
   stream.on("error", () => {
     console.log("❌ Error reading file ❌");
   });

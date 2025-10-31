@@ -1,20 +1,25 @@
 import fs from "fs";
+import path from "path";
 import { getCurrentWorkingDirectory } from "../changeDir.js";
+import { getPath } from "../getPath.js";
 
-const renameFile = async (files) => {
-  const data = files.split(" ");
-  let CURRENT_FILE_PATH;
-  let NEW_FILE_PATH;
-  if (!data[0]) {
-    console.log("❌ You must enter the file path and file name. ❌");
+const renameFile = async (paths) => {
+  const [sourcePath, newFileName] = paths.trim().split(" ");
+
+  if (!sourcePath || !newFileName) {
+    console.log("❌ You must enter both file path and target directory ❌");
     return;
-  } else if (!data[1]) {
-    console.log("❌ You have not entered a new file name ❌");
-    return;
-  } else {
-    CURRENT_FILE_PATH = data[0];
-    NEW_FILE_PATH = `${getCurrentWorkingDirectory()}\\${data[1]}`;
   }
+
+  if (!path.extname(sourcePath) || !path.extname(newFileName)) {
+    console.log("❌ You must enter a file with extension ❌");
+    return;
+  }
+
+  const CURRENT_FILE_PATH = getPath(sourcePath);
+  if (!CURRENT_FILE_PATH) return;
+
+  const NEW_FILE_PATH = path.join(getCurrentWorkingDirectory(), newFileName);
 
   fs.access(NEW_FILE_PATH, fs.constants.F_OK, (err) => {
     if (err) {

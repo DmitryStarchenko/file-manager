@@ -4,22 +4,14 @@ let userName;
 
 const startMessage = () => {
   const ARGS = process.argv.slice(2);
-  if (ARGS.length === 0) {
-    console.log(
-      "❌ The application must be launched via: 'npm run start -- --username=your_username' ❌"
-    );
-    process.exit(0);
-  }
-  userName = ARGS[0].split("=");
+  userName = ARGS.length === 0 ? 'Anonym' : ARGS[0].split("=")[1];
 
-  console.log(`🌟 Welcome to the File Manager 💻, ${userName[1]}! 🌟`);
+  console.log(`🌟 Welcome to the File Manager, ${userName}! 🌟`);
   console.log(`📚 You are currently in ${getCurrentWorkingDirectory()}\n`);
 };
 
 const endMessage = () => {
-  console.log(
-    `\nThank you for using File Manager, ${userName[1]}, goodbye! 👋`
-  );
+  console.log(`\nThank you for using File Manager, ${userName}, goodbye! 👋`);
   process.exit(0);
 };
 

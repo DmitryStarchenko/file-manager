@@ -1,12 +1,12 @@
 import fs from "fs";
 import crypto from "crypto";
+import { getPath } from "../getPath.js";
 
 const hashFile = async (filePath) => {
-  if (filePath === "") {
-    console.log("❌ You must enter the file path ❌");
-    return;
-  }
-  const fileStream = fs.createReadStream(filePath);
+  const path = getPath(filePath);
+  if (!path) return;
+
+  const fileStream = fs.createReadStream(path);
   const hash = crypto.createHash("sha256");
 
   fileStream.on("data", (data) => {

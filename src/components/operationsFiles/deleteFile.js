@@ -1,11 +1,11 @@
 import fs from "fs";
+import { getPath } from "../getPath.js";
 
 const deleteFile = (filePath) => {
-  if (filePath === "") {
-    console.log("❌ You must enter the file path ❌");
-    return;
-  }
-  fs.unlink(filePath, (error) => {
+  const path = getPath(filePath);
+  if (!path) return;
+
+  fs.unlink(path, (error) => {
     if (error) {
       console.log("❌ File deletion error ❌");
     } else {
