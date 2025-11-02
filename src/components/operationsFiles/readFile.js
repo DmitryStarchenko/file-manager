@@ -9,9 +9,8 @@ const readFile = (filePath) => {
   stream.on("error", () => {
     console.log("❌ Error reading file ❌");
   });
-  stream.pipe(process.stdout);
-  stream.on("end", () => {
-    console.log("\n");
+  stream.on("data", (data) => {
+    console.log(`🏁 ${data}`);
   });
 };
 

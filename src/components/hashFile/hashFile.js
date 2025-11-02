@@ -15,7 +15,7 @@ const hashFile = async (filePath) => {
 
   fileStream.on("end", () => {
     const fileHash = hash.digest("hex");
-    console.log(`File hash: ${fileHash}`);
+    console.log(`🏁 File hash: ${fileHash}`);
   });
 };
 
