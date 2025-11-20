@@ -1,0 +1,16 @@
+{
+  "name": "file-manager",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DmitryStarchenko/file-manager.git"
+  },
+  "license": "ISC",
+  "author": "Dmitry Starchenko",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}
